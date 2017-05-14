@@ -19,7 +19,7 @@ import { youTubeSearchInjectables } from './youtube-search/youtube-search.inject
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule 
+    HttpModule // <-- right here
   ],
   providers: [youTubeSearchInjectables],
   bootstrap: [AppComponent]

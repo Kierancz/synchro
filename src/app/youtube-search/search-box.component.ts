@@ -16,7 +16,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switch';
 
-import { YouTubeSearchService } from './you-tube-search.service';
+import { YouTubeSearchService } from './youtube-search.service';
 import { SearchResult } from './search-result.model';
 
 @Component({

@@ -2,7 +2,7 @@
 * SearchResult is a data-structure that holds an individual
 * record from a YouTube video search
 */
-export class SearchClass {
+export class SearchResult {
   id: string;
   title: string;
   description: string;
