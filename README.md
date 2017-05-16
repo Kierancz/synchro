@@ -1,5 +1,7 @@
 # Synchro
 
+This will eventually be a web app that allows you to search youtube to add videos and songs to collaborative playlists that can be synchronized to play at the same time across different devices with the playlist open.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
 
 ## Development server

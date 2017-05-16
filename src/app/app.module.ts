@@ -2,7 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { 
+  RouterModule, 
+  Routes } from '@angular/router';
+ import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { YouTubeSearchComponent } from './youtube-search/youtube-search.component';
@@ -13,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProtectedComponent } from './protected/protected.component';
+
 
 import { AUTH_PROVIDERS } from './auth.service';
 import { LoggedInGuard } from './logged-in.guard';
@@ -53,7 +57,7 @@ const routes: Routes = [
   providers: [
     youTubeSearchInjectables,
     // uncomment this for "hash-bang" routing
-    // { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     AUTH_PROVIDERS,
     LoggedInGuard
   ],

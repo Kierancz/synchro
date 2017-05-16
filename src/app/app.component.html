@@ -1,16 +1,17 @@
 <div class="page-header">
   <div class="container">
     <h1>Synchro</h1>
-    <div class="navLinks">
+    <div class="nav">
       <a [routerLink]="['/home']">Home</a>
       <a [routerLink]="['/about']">About</a>
       <a [routerLink]="['/login']">Login</a>
+      <a [routerLink]="['/protected']">Protected</a>
     </div>
   </div>
 </div>
 
 <div id="content">
   <div class="container">
-    <youtube-search></youtube-search>
+    <router-outlet></router-outlet>
   </div>
 </div>
