@@ -1,5 +1,6 @@
 <md-toolbar color="primary" class="nav">
 
+  <div class="container">
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
@@ -10,6 +11,7 @@
   <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
    <md-icon>menu</md-icon>
   </button>
+</div>
 
 </md-toolbar>
 <md-menu x-position="before" #menu="mdMenu">

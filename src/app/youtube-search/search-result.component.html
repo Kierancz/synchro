@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-md-3">
+<!--<div class="col-sm-6 col-md-3">
   <div class="thumbnail">
     <img src="{{result.thumbnailUrl}}"> 
     <div class="caption">
@@ -10,3 +10,18 @@
     </div>
   </div> 
 </div>
+-->
+<md-card class="youtubeCard">
+  <md-card-header>
+    <md-card-title>{{result.title}}</md-card-title>
+  </md-card-header>
+  <img md-card-image src="{{result.thumbnailUrl}}">
+  <md-card-content>
+    <p>
+      {{result.description}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button><a href="{{result.videoUrl}}">WATCH</a></button>
+  </md-card-actions>
+</md-card>
