@@ -5,7 +5,15 @@ import { HttpModule } from '@angular/http';
 import { 
   RouterModule, 
   Routes } from '@angular/router';
- import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { 
+  MdButtonModule, 
+  MdCardModule, 
+  MdMenuModule, 
+  MdToolbarModule, 
+  MdIconModule } from '@angular/material';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { YouTubeSearchComponent } from './youtube-search/youtube-search.component';
@@ -20,6 +28,7 @@ import { ProtectedComponent } from './protected/protected.component';
 
 import { AUTH_PROVIDERS } from './auth.service';
 import { LoggedInGuard } from './logged-in.guard';
+import { NavComponent } from './nav/nav.component';
 
 
 const routes: Routes = [
@@ -46,12 +55,21 @@ const routes: Routes = [
     AboutComponent,
     HomeComponent,
     LoginComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    NavComponent
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    MdButtonModule,
+    MdMenuModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule,
+    FlexLayoutModule,
     RouterModule.forRoot(routes) // import & install routes
   ],
   providers: [
