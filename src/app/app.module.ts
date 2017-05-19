@@ -12,8 +12,10 @@ import {
   MdCardModule, 
   MdMenuModule, 
   MdToolbarModule, 
-  MdIconModule } from '@angular/material';
-import {FlexLayoutModule} from "@angular/flex-layout";
+  MdIconModule,
+  MdInputModule
+   } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { YouTubeSearchComponent } from './youtube-search/youtube-search.component';
@@ -22,13 +24,12 @@ import { SearchBoxComponent } from './youtube-search/search-box.component';
 import { youTubeSearchInjectables } from './youtube-search/youtube-search.injectables';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ProtectedComponent } from './protected/protected.component';
-
 
 import { AUTH_PROVIDERS } from './auth.service';
 import { LoggedInGuard } from './logged-in.guard';
 import { NavComponent } from './nav/nav.component';
+import { LoginComponent } from './login/login.component';
+import { ProtectedComponent } from './protected/protected.component';
 
 
 const routes: Routes = [
@@ -69,6 +70,7 @@ const routes: Routes = [
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
+    MdInputModule,
     FlexLayoutModule,
     RouterModule.forRoot(routes) // import & install routes
   ],

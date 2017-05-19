@@ -1,3 +1,22 @@
-<p>
-  login works!
-</p>
+<h1>Login</h1>
+
+<div class="alert alert-danger" role="alert" *ngIf="message">
+  {{ message }}
+</div>
+
+<form class="login-form" *ngIf="!authService.getUser()">
+  <md-input-container class="full-width">
+    <input mdInput placeholder="Username" #username>
+  </md-input-container>
+  <md-input-container class="full-width">
+    <input mdInput type="password" placeholder="Password" #password>
+  </md-input-container>
+
+  <button md-raised-button (click)="login(username.value, password.value)">Submit</button>
+
+</form>
+
+<div class="well" *ngIf="authService.getUser()">
+  Logged in as <b>{{ authService.getUser() }}</b>
+  <a href (click)="logout()">Log out</a>
+</div>
