@@ -1,29 +1,15 @@
-import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/Rx";
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 @Injectable()
-export class AuthService {
-  login(user: string, password: string): boolean {
-    if (user === 'user' && password === 'password') {
-      localStorage.setItem('username', user);
-      return true;
-    }
+export class AuthGuard implements CanActivate {
 
-    return false;
-  }
+    constructor(private auth: AngularFireAuth, private router: Router) {}
 
-  logout(): any {
-    localStorage.removeItem('username');
-  }
-
-  getUser(): any {
-    return localStorage.getItem('username');
-  }
-
-  isLoggedIn(): boolean {
-    return this.getUser() !== null;
-  }
+ 
 }
-
-export const AUTH_PROVIDERS: Array<any> = [
-  { provide: AuthService, useClass: AuthService }
-];

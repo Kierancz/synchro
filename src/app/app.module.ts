@@ -25,11 +25,14 @@ import { youTubeSearchInjectables } from './youtube-search/youtube-search.inject
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 
-import { AUTH_PROVIDERS } from './auth.service';
-import { LoggedInGuard } from './logged-in.guard';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { firebaseConfig } from '../config';
 import { NavComponent } from './nav/nav.component';
+import { MembersComponent } from './members/members.component';
 import { LoginComponent } from './login/login.component';
-import { ProtectedComponent } from './protected/protected.component';
 
 
 const routes: Routes = [
@@ -40,11 +43,6 @@ const routes: Routes = [
 
   // authentication
   { path: 'login', component: LoginComponent },
-  {
-    path: 'protected',
-    component: ProtectedComponent,
-    canActivate: [ LoggedInGuard ]
-  }
 ];
 
 @NgModule({
@@ -56,8 +54,8 @@ const routes: Routes = [
     AboutComponent,
     HomeComponent,
     LoginComponent,
-    ProtectedComponent,
-    NavComponent
+    NavComponent,
+    MembersComponent
 
   ],
   imports: [
@@ -72,14 +70,15 @@ const routes: Routes = [
     MdIconModule,
     MdInputModule,
     FlexLayoutModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     RouterModule.forRoot(routes) // import & install routes
   ],
   providers: [
     youTubeSearchInjectables,
     // uncomment this for "hash-bang" routing
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AUTH_PROVIDERS,
-    LoggedInGuard
   ],
   bootstrap: [AppComponent]
 })

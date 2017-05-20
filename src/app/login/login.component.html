@@ -1,22 +1,8 @@
-<h1>Login</h1>
+<div class="form-container">
+  <img src="assets/images/lock.svg" id="lock">
 
-<div class="alert alert-danger" role="alert" *ngIf="message">
-  {{ message }}
-</div>
+    <span class="error" *ngIf="error">{{ error }}</span>
 
-<form class="login-form" *ngIf="!authService.getUser()">
-  <md-input-container class="full-width">
-    <input mdInput placeholder="Username" #username>
-  </md-input-container>
-  <md-input-container class="full-width">
-    <input mdInput type="password" placeholder="Password" #password>
-  </md-input-container>
-
-  <button md-raised-button (click)="login(username.value, password.value)">Submit</button>
-
-</form>
-
-<div class="well" *ngIf="authService.getUser()">
-  Logged in as <b>{{ authService.getUser() }}</b>
-  <a href (click)="logout()">Log out</a>
+  <button (click)="loginFb()" id="fb">Login With Facebook</button><br>
+  <button (click)="loginGoogle()" id="google">Login With Google</button>
 </div>
