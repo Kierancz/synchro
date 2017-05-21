@@ -1,0 +1,10 @@
+<div class="signin-buttons">
+  <span class="error" *ngIf="error">{{ error }}</span>
+  <div *ngIf="!auth.currentUser; else alreadyLoggedIn">
+  <button md-raised-button (click)="signInWithFacebook()" id="fb">Login With Facebook</button>
+  <button md-raised-button (click)="signInWithGoogle()" id="google">Login With Google</button>
+</div>
+
+<ng-template #alreadyLoggedIn>
+    already logged in!
+</ng-template>

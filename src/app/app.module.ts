@@ -30,9 +30,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { firebaseConfig } from '../config';
+import { AuthService } from './auth.service';
+import { AuthGuard} from './auth.guard';
 import { NavComponent } from './nav/nav.component';
-import { MembersComponent } from './members/members.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './users/login/login.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 
 const routes: Routes = [
@@ -40,6 +42,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'profile', component: ProfileComponent },
 
   // authentication
   { path: 'login', component: LoginComponent },
@@ -55,8 +58,7 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     NavComponent,
-    MembersComponent
-
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,8 @@ const routes: Routes = [
   ],
   providers: [
     youTubeSearchInjectables,
+    AuthService,
+    AuthGuard,
     // uncomment this for "hash-bang" routing
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
