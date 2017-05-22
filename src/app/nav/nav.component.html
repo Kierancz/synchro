@@ -4,10 +4,11 @@
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-    <button md-button routerLink="/home">HOME</button>
-    <button md-button routerLink="/about">ABOUT</button>
-    <button md-button routerLink="/profile">PROFILE</button>
-    <button md-button routerLink="/login">LOGIN</button>
+    <button md-button routerLink="/home"><md-icon>home</md-icon> HOME</button>
+    <button md-button routerLink="/about"><md-icon>info</md-icon> ABOUT</button>
+    <button md-button routerLink="/profile"><md-icon>account_circle</md-icon> PROFILE</button>
+    <button md-button routerLink="/login" *ngIf="!auth.currentUser"><md-icon>exit_to_app</md-icon> LOGIN</button>
+    <button md-button routerLink="/" (click)="logout()" *ngIf="auth.currentUser"> LOGOUT</button>
   </div>
   <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
    <md-icon>menu</md-icon>
@@ -16,11 +17,10 @@
 
 </md-toolbar>
 <md-menu x-position="before" #menu="mdMenu">
-  <button md-button routerLink="/home">HOME</button>
-  <button md-button routerLink="/about">ABOUT</button>
-  <button md-button routerLink="/profile">PROFILE</button>
-  <button md-button routerLink="/login">LOGIN</button>
-    <!--<button md-menu-item>Help</button>-->
+  <button md-button routerLink="/home"><md-icon>home</md-icon> HOME</button>
+  <button md-button routerLink="/about"><md-icon>info</md-icon> ABOUT</button>
+  <button md-button routerLink="/profile"><md-icon>account_circle</md-icon> PROFILE</button>
+  <button md-button routerLink="/login"><md-icon>exit_to_app</md-icon> LOGIN</button>
 </md-menu>
 
 

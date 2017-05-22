@@ -1,4 +1,4 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 @charset "UTF-8";
 
@@ -12,6 +12,15 @@ body {
  margin: 0px;
 }
 
+.img-circle {
+    border-radius: 50%;
+}
+
+/* 
+
+Selected Bootstrap styles 
+
+*/
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -594,3 +603,4 @@ body {
     border-top-color: #e4b9c0; }
   .alert-danger .alert-link {
     color: #843534; }
+

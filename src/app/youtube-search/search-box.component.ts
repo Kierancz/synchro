@@ -6,6 +6,7 @@ import {
   ElementRef
 } from '@angular/core';
 
+
 // By importing just the rxjs operators we need, We're theoretically able
 // to reduce our build size vs. importing all of them.
 import { Observable } from 'rxjs/Observable';
@@ -21,9 +22,7 @@ import { SearchResult } from './search-result.model';
 
 @Component({
   selector: 'app-search-box',
-  template: `
-    <input type="text" class="form-control" placeholder="Search" autofocus>
-  `
+  templateUrl: 'search-box.component.html'
 })
 export class SearchBoxComponent implements OnInit {
   @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();

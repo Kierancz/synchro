@@ -35,6 +35,7 @@ import { AuthGuard} from './auth.guard';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './users/login/login.component';
 import { ProfileComponent } from './users/profile/profile.component';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 
 const routes: Routes = [
@@ -72,6 +73,7 @@ const routes: Routes = [
     MdIconModule,
     MdInputModule,
     FlexLayoutModule,
+    Angular2FontawesomeModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
