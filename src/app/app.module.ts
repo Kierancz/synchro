@@ -35,7 +35,9 @@ import { AuthGuard} from './auth.guard';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './users/login/login.component';
 import { ProfileComponent } from './users/profile/profile.component';
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { YoutubePlayerComponent } from './youtube-player/youtube-player.component'
+import { YoutubeApiService } from "./youtube-api.service";
 
 
 const routes: Routes = [
@@ -59,7 +61,8 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     NavComponent,
-    ProfileComponent
+    ProfileComponent,
+    YoutubePlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +84,7 @@ const routes: Routes = [
   ],
   providers: [
     youTubeSearchInjectables,
+    YoutubeApiService,
     AuthService,
     AuthGuard,
     // uncomment this for "hash-bang" routing
