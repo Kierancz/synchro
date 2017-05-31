@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   selector: 'yt-player',
   styleUrls: ['youtube-player.component.css'],
   template: `<youtube-player
-  [videoId]="id"
+  [videoId]="YTId"
   (ready)="savePlayer($event)"
   (change)="onStateChange($event)"
   ></youtube-player>
@@ -14,6 +14,7 @@ import { Component, Input } from '@angular/core';
 export class YoutubePlayerComponent {
   private player;
   private ytEvent;
+  @Input() YTId: string;
 
   constructor() {
     console.log("player component: ", this) }
@@ -23,7 +24,7 @@ export class YoutubePlayerComponent {
     console.log('player instance', player)
   }
 
-  onStateChange(event){
+  onStateChange(event) {
     console.log('player state', event.data);
     this.ytEvent = event.data;
   }
