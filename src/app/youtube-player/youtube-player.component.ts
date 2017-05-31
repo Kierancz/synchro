@@ -1,55 +1,38 @@
-import {Component, EventEmitter, Input, Output, AfterContentInit, ElementRef, ViewChild, OnInit} from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, Input } from '@angular/core';
 
-import {YoutubeApiService} from "../youtube-api.service";
-import {YoutubePlayer} from "./YoutubePlayer";
-import {PlayerConfig} from "./playerconfig.interface";
 
 @Component({
-    selector: 'youtube-player',
-    templateUrl: './youtube-player.component.html',
-    providers: [YoutubePlayer]
+  selector: 'yt-player',
+  styleUrls: ['youtube-player.component.css'],
+  template: `<youtube-player
+  [videoId]="id"
+  (ready)="savePlayer($event)"
+  (change)="onStateChange($event)"
+  ></youtube-player>
+  `
 })
-export class YoutubePlayerComponent implements OnInit {
-  @Input() videoId: string = '';
-  @Input() height: number;
-  @Input() width: number;
+export class YoutubePlayerComponent {
+  private player;
+  private ytEvent;
 
-  // Player (emitter) created and initialized - sends instance of the player
-  // Emit player "out of this component" so that other components can take control of the player
-  @Output() ready = new EventEmitter<YT.Player>();
-  // state change: send the YT event with its state (like "END, ISPLAYING, PAUSED, ...)"
-  @Output() change = new EventEmitter();
+  constructor() {
+    console.log("player component: ", this) }
 
-  @ViewChild('playercontainer') private playercontainer: ElementRef;
+  savePlayer (player) {
+    this.player = player;
+    console.log('player instance', player)
+  }
 
-  constructor(
-      public youtubeApiService: YoutubeApiService,
-      public youtubePlayer: YoutubePlayer
-  ) {}
-
-  ngOnInit () {
-      // Get original div and set a unique ID for it.
-      // That is important when working with multiple players
-      let elementId = this.youtubePlayer.generateUUID();
-      this.playercontainer.nativeElement.setAttribute('id', elementId);
-
-      // Define configuration for the player
-      let playerConfig = {
-          elementId: elementId,
-          width: this.width,
-          height: this.height,
-          videoId: this.videoId,
-          outputs: {
-              ready: this.ready,
-              change: this.change
-          }
-      };
-
-      // Load the Youtube API
-      this.youtubeApiService.loadApi();
-
-      // Load the youtube player
-      this.youtubePlayer.load(playerConfig);
+  onStateChange(event){
+    console.log('player state', event.data);
+    this.ytEvent = event.data;
+  }
+  
+  playVideo() {
+    this.player.playVideo();
+  }
+  
+  pauseVideo() {
+    this.player.pauseVideo();
   }
 }

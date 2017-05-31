@@ -16,10 +16,11 @@ export class AuthGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<any> | boolean {
-      if (this.auth.authenticated) { return true; }
+    state: RouterStateSnapshot): 
+      Observable<any> | boolean {
+        if (this.auth.authenticated) { return true; }
 
-      return this.auth.currentUserObservable
+        return this.auth.currentUserObservable
          .take(1)
          .map(user => !!user)
          .do(loggedIn => {
@@ -28,6 +29,5 @@ export class AuthGuard implements CanActivate {
              this.router.navigate(['/login']);
            }
          })
-
   }
 }

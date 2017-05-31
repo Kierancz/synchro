@@ -18,6 +18,8 @@ import {
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
+import { YoutubePlayerModule } from 'ng2-youtube-player';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { YouTubeSearchComponent } from './youtube-search/youtube-search.component';
 import { SearchResultComponent } from './youtube-search/search-result.component';
 import { SearchBoxComponent } from './youtube-search/search-box.component';
@@ -37,8 +39,6 @@ import { LoginComponent } from './users/login/login.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component'
-import { YoutubeApiService } from "./youtube-api.service";
-
 
 const routes: Routes = [
   // basic routes
@@ -80,11 +80,11 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(routes) // import & install routes
+    RouterModule.forRoot(routes), // import & install routes
+    YoutubePlayerModule
   ],
   providers: [
     youTubeSearchInjectables,
-    YoutubeApiService,
     AuthService,
     AuthGuard,
     // uncomment this for "hash-bang" routing
@@ -96,3 +96,5 @@ const routes: Routes = [
 export class AppModule {
 
 }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

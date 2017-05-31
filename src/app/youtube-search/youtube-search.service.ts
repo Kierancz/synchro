@@ -32,7 +32,7 @@ export class YouTubeSearchService {
       return this.http.get(queryUrl)
       .map((response: Response) => {
         return (<any>response.json()).items.map(item => {
-          // console.log("raw item", item); // uncomment if you want to debug
+           console.log("raw search item", item); // uncomment if you want to debug
           return new SearchResult({
             id: item.id.videoId,
             title: item.snippet.title,
