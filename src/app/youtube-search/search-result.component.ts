@@ -13,7 +13,6 @@ import { SearchResult } from './search-result.model';
 
 export class SearchResultComponent implements OnInit {
   @Input() result: SearchResult;
-  //videoId: string = this.result.id;
   
   constructor() {console.log("search result: ", this.result) }
 

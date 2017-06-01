@@ -6,6 +6,7 @@
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
     <button md-button routerLink="/home"><md-icon>home</md-icon> HOME</button>
     <button md-button routerLink="/about"><md-icon>info</md-icon> ABOUT</button>
+    <button md-button routerLink="/playlists" *ngIf="auth.currentUser"><md-icon>playlist_play</md-icon> PLAYLISTS</button>
     <button md-button routerLink="/profile"><md-icon>account_circle</md-icon> PROFILE</button>
     <button md-button routerLink="/login" *ngIf="!auth.currentUser"><md-icon>exit_to_app</md-icon> LOGIN</button>
     <button md-button routerLink="/" (click)="logout()" *ngIf="auth.currentUser"> LOGOUT</button>
@@ -16,11 +17,13 @@
 </div>
 
 </md-toolbar>
-<md-menu x-position="before" #menu="mdMenu">
-  <button md-button routerLink="/home"><md-icon>home</md-icon> HOME</button>
-  <button md-button routerLink="/about"><md-icon>info</md-icon> ABOUT</button>
-  <button md-button routerLink="/profile"><md-icon>account_circle</md-icon> PROFILE</button>
-  <button md-button routerLink="/login"><md-icon>exit_to_app</md-icon> LOGIN</button>
+<md-menu x-position="before" #menu="mdMenu" id="nav-menu">
+  <button md-button class="menu-item" routerLink="/home"><md-icon>home</md-icon> HOME</button>
+  <button md-button class="menu-item" routerLink="/about"><md-icon>info</md-icon> ABOUT</button>
+  <button md-button class="menu-item" routerLink="/playlists" *ngIf="auth.currentUser"><md-icon>playlist_play</md-icon> PLAYLISTS</button>
+  <button md-button class="menu-item" routerLink="/profile"><md-icon>account_circle</md-icon> PROFILE</button>
+  <button md-button class="menu-item" routerLink="/login" *ngIf="!auth.currentUser"><md-icon>exit_to_app</md-icon> LOGIN</button>
+  <button md-button class="menu-item"routerLink="/" (click)="logout()" *ngIf="auth.currentUser"> LOGOUT</button>
 </md-menu>
 
 

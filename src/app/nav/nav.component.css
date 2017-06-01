@@ -9,3 +9,11 @@
   justify-content: center;
 }
 
+.menu-item {
+  margin-top: .5em;
+  display: block;
+}
+
+#nav-menu {
+  background-color: #fff;
+}

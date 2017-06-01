@@ -38,7 +38,9 @@ import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './users/login/login.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
-import { YoutubePlayerComponent } from './youtube-player/youtube-player.component'
+import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
+import { ListComponent } from './playlists/list/list.component';
+import { FormComponent } from './playlists/form/form.component';
 
 const routes: Routes = [
   // basic routes
@@ -46,6 +48,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'playlists', component: ListComponent },
 
   // authentication
   { path: 'login', component: LoginComponent },
@@ -62,7 +65,9 @@ const routes: Routes = [
     LoginComponent,
     NavComponent,
     ProfileComponent,
-    YoutubePlayerComponent
+    YoutubePlayerComponent,
+    ListComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
