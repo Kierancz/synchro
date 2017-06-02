@@ -13,7 +13,8 @@ import {
   MdMenuModule, 
   MdToolbarModule, 
   MdIconModule,
-  MdInputModule
+  MdInputModule,
+  MdListModule
    } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -42,7 +43,8 @@ import { YoutubePlayerComponent } from './youtube-player/youtube-player.componen
 import { PlaylistFormComponent } from './playlists/playlist-form/playlist-form.component';
 import { PlaylistListComponent } from './playlists/playlist-list/playlist-list.component';
 import { PlaylistDetailComponent } from './playlists/playlist-detail/playlist-detail.component';
-import { PlaylistService } from './playlists/playlist.service'
+import { PlaylistService } from './playlists/playlist.service';
+import { PlaylistContentComponent } from './playlists/playlist-content/playlist-content.component';
 
 const routes: Routes = [
   // basic routes
@@ -50,7 +52,10 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'playlists', component: PlaylistListComponent },
+  { path: 'playlists', 
+    component: PlaylistListComponent,
+    children: childRoutes
+  },
 
   // authentication
   { path: 'login', component: LoginComponent },
@@ -71,6 +76,7 @@ const routes: Routes = [
     PlaylistFormComponent,
     PlaylistListComponent,
     PlaylistDetailComponent,
+    PlaylistContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +89,7 @@ const routes: Routes = [
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
+    MdListModule,
     FlexLayoutModule,
     Angular2FontawesomeModule,
     AngularFireModule.initializeApp(firebaseConfig),

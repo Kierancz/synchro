@@ -1,8 +1,7 @@
-<h5>{{ playlist.name || 'missing name' }}</h5>
-Active: {{ playlist.active }}
-{{ playlist.timeStamp | date: 'medium' }}
+<md-list-item>
+  <h2 md-line>{{ playlist.name || 'missing name' }}</h2>
+  <p md-line>{{ playlist.description || 'missing description' }}</p>
+  {{ playlist.timeStamp | date: 'medium' }}
 
-<span (click)='updateTimeStamp()'>Update Timestamp</span>
-<span *ngIf='playlist.active' (click)='updateActive(false)'>Mark Complete</span>
-<span *ngIf='!playlist.active' (click)='updateActive(true)'>Mark Active</span>
-<span (click)='deleteplaylist()'>Delete</span>
+  <button md-button (click)='deleteplaylist()'><md-icon>delete_forever</md-icon>Delete</button>
+</md-list-item>

@@ -4,12 +4,12 @@ export class Playlist {
   description: string;
   votes: number;
   timeStamp: Date;
-  active: boolean;
 
-  constructor(name: string, description: string, votes?: number) {
+  constructor(name: string, description: string, votes?: number, timeStamp?: Date) {
     this.name = name;
     this.description = description;
     this.votes = votes || 0;
+    this.timeStamp = new Date();
   }
 
   voteUp(): void {
