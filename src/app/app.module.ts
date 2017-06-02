@@ -39,8 +39,10 @@ import { LoginComponent } from './users/login/login.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { YoutubePlayerComponent } from './youtube-player/youtube-player.component';
-import { ListComponent } from './playlists/list/list.component';
-import { FormComponent } from './playlists/form/form.component';
+import { PlaylistFormComponent } from './playlists/playlist-form/playlist-form.component';
+import { PlaylistListComponent } from './playlists/playlist-list/playlist-list.component';
+import { PlaylistDetailComponent } from './playlists/playlist-detail/playlist-detail.component';
+import { PlaylistService } from './playlists/playlist.service'
 
 const routes: Routes = [
   // basic routes
@@ -48,7 +50,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'playlists', component: ListComponent },
+  { path: 'playlists', component: PlaylistListComponent },
 
   // authentication
   { path: 'login', component: LoginComponent },
@@ -66,8 +68,9 @@ const routes: Routes = [
     NavComponent,
     ProfileComponent,
     YoutubePlayerComponent,
-    ListComponent,
-    FormComponent,
+    PlaylistFormComponent,
+    PlaylistListComponent,
+    PlaylistDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +95,7 @@ const routes: Routes = [
     youTubeSearchInjectables,
     AuthService,
     AuthGuard,
+    PlaylistService,
     // uncomment this for "hash-bang" routing
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],

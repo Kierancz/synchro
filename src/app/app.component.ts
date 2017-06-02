@@ -15,11 +15,10 @@ import * as firebase from 'firebase/app'
 })
 export class AppComponent {
   user: Observable<firebase.User>;
-  items: FirebaseListObservable<any[]>;
-  msgVal: string = '';
+  playlists: FirebaseListObservable<any[]>;
 
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase, private router: Router) {
-    this.items = af.list('/messages', {
+    this.playlists = af.list('/playlists', {
       query: {
         limitToLast: 50
       }

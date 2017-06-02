@@ -1,7 +1,10 @@
 export class Playlist {
+  $key: string;
   name: string;
   description: string;
   votes: number;
+  timeStamp: Date;
+  active: boolean;
 
   constructor(name: string, description: string, votes?: number) {
     this.name = name;

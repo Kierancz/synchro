@@ -4,6 +4,11 @@
     <div class="col-lg-6 col-sm-12">
       <playlist-form></playlist-form>
     </div>
+    <div class="col-lg-6 col-sm-12">
+      <div *ngFor="let playlist of playlists | async" >
+        <playlist-detail [playlist]='playlist'></playlist-detail>
+      </div>
+    </div>
     <div class="col-sm-12">
       <youtube-search></youtube-search>
     </div>
