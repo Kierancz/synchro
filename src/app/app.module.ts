@@ -17,6 +17,7 @@ import {
   MdListModule
    } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { YoutubePlayerModule } from 'ng2-youtube-player';
@@ -27,7 +28,6 @@ import { SearchBoxComponent } from './youtube-search/search-box.component';
 import { youTubeSearchInjectables } from './youtube-search/youtube-search.injectables';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -45,21 +45,6 @@ import { PlaylistListComponent } from './playlists/playlist-list/playlist-list.c
 import { PlaylistDetailComponent } from './playlists/playlist-detail/playlist-detail.component';
 import { PlaylistService } from './playlists/playlist.service';
 import { PlaylistContentComponent } from './playlists/playlist-content/playlist-content.component';
-
-const routes: Routes = [
-  // basic routes
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'playlists', 
-    component: PlaylistListComponent,
-    children: childRoutes
-  },
-
-  // authentication
-  { path: 'login', component: LoginComponent },
-];
 
 @NgModule({
   declarations: [
@@ -95,7 +80,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(routes), // import & install routes
+    AppRoutingModule, // import & install routes
     YoutubePlayerModule
   ],
   providers: [

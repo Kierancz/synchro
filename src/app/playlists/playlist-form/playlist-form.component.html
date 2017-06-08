@@ -1,10 +1,25 @@
 <h2>Create Playlist: </h2>
-<form>
+<form #playlistForm="ngForm">
   <md-input-container class="form-input">
-    <input mdInput placeholder="Playlist Name" #name/>
+    <input mdInput placeholder="Playlist Name" required minlength="4" maxlength="24" name="name" [(ngModel)]="playlist.name" #name="ngModel" />
   </md-input-container>
+
   <md-input-container class="form-input">
-    <textarea mdInput placeholder="Description (Optional)" #description></textarea>
+    <textarea mdInput placeholder="Description (Optional)" name="description" [(ngModel)]="playlist.description" #description="ngModel"></textarea>
   </md-input-container>
-   <button md-raised-button (click)="createPlaylist(name, description)" color="primary">Submit</button>
+
+  <button md-raised-button (click)="createPlaylist(name, description); playlistForm.reset()" color="primary" [disabled]="!name.valid">Submit</button>
 </form>
+
+<div *ngIf="name.errors && (name.dirty || name.touched)"
+  class="alert alert-danger">
+  <div [hidden]="!name.errors.required">
+    Name is required
+  </div>
+  <div [hidden]="!name.errors.minlength">
+    Name must be at least 4 characters long.
+  </div>
+  <div [hidden]="!name.errors.maxlength">
+    Name cannot be more than 24 characters long.
+  </div>
+</div>
