@@ -26,6 +26,11 @@ export class PlaylistService {
     return this.playlist
   }
 
+  /*getPlaylistRoute(id: number): Promise<Playlist> {
+    return this.getPlaylists()
+               .then(playlists => playlists.find(playlist => playlist.id === id));
+  }*/
+
   createPlaylist(playlist: Playlist): void  {
     this.playlists.push(playlist)
       .catch(error => this.handleError(error))
@@ -47,6 +52,7 @@ export class PlaylistService {
     this.playlists.remove()
       .catch(error => this.handleError(error))
   }
+
 
   // Default error handling for all actions
   private handleError(error) {

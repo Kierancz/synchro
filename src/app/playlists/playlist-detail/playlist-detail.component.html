@@ -1,7 +1,6 @@
 <md-list-item>
-  <h2 md-line>{{ playlist.name || 'missing name' }}</h2>
+  <h2 md-line><b>{{ playlist.name || 'missing name' }}</b></h2>
   <p md-line>{{ playlist.description || 'missing description' }}</p>
-  {{ playlist.timeStamp | date: 'medium' }}
-
+  <p md-line>{{ date | timeAgo }}</p>
   <button md-button (click)='deleteplaylist()'><md-icon>delete_forever</md-icon>Delete</button>
 </md-list-item>

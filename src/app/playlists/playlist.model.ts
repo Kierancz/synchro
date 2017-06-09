@@ -4,7 +4,16 @@ export class Playlist {
   name: string;
   description: string;
   votes: number;
-  timeStamp: Date;
+  timeStamp: any;
+  creatorId: string;
+  creatorName: string;
+  collaborators: Array<string>;
+  items: Array<any>;
+
+  constructor() {
+    this.votes = 0;
+    this.timeStamp = new Date().toUTCString();
+  }
 
   voteUp(): void {
     this.votes += 1;

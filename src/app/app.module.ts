@@ -14,7 +14,8 @@ import {
   MdToolbarModule, 
   MdIconModule,
   MdInputModule,
-  MdListModule
+  MdListModule,
+  MdSnackBarModule
    } from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +47,8 @@ import { PlaylistDetailComponent } from './playlists/playlist-detail/playlist-de
 import { PlaylistService } from './playlists/playlist.service';
 import { PlaylistContentComponent } from './playlists/playlist-content/playlist-content.component';
 
+import { TimeAgoPipe } from './pipes/time-ago.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +65,7 @@ import { PlaylistContentComponent } from './playlists/playlist-content/playlist-
     PlaylistListComponent,
     PlaylistDetailComponent,
     PlaylistContentComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,7 @@ import { PlaylistContentComponent } from './playlists/playlist-content/playlist-
     MdIconModule,
     MdInputModule,
     MdListModule,
+    MdSnackBarModule,
     FlexLayoutModule,
     Angular2FontawesomeModule,
     AngularFireModule.initializeApp(firebaseConfig),
