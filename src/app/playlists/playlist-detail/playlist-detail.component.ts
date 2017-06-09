@@ -8,10 +8,9 @@ import { AuthService } from '../../auth.service';
   templateUrl: './playlist-detail.component.html',
   styleUrls: ['./playlist-detail.component.css']
 })
-export class PlaylistDetailComponent implements OnInit {
+export class PlaylistDetailComponent {
 
   @Input() playlist: Playlist;
-  date: Date;
 
   constructor(private playlistSvc: PlaylistService) { }
 
@@ -26,10 +25,6 @@ export class PlaylistDetailComponent implements OnInit {
 
   deleteplaylist() {
     this.playlistSvc.deletePlaylist(this.playlist.$key)
-  }
-
-  ngOnInit() {
-    this.date = new Date(this.playlist.timeStamp);
   }
 
 }

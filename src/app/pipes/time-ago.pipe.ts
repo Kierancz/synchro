@@ -27,7 +27,7 @@ export class TimeAgoPipe implements PipeTransform, OnDestroy {
     }
 
     if (!(obj instanceof Date)) {
-      throw new Error('TimeAgoPipe works only with Dates');
+      obj = new Date(obj)
     }
 
     this.value = obj;
