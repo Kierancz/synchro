@@ -8,11 +8,14 @@ import { AuthService } from '../../auth.service';
   templateUrl: './playlist-detail.component.html',
   styleUrls: ['./playlist-detail.component.css']
 })
-export class PlaylistDetailComponent {
+export class PlaylistDetailComponent implements OnInit {
 
   @Input() playlist: Playlist;
+  isOwner: boolean;
 
-  constructor(private playlistSvc: PlaylistService) { }
+  constructor(
+    private playlistSvc: PlaylistService, 
+    private auth: AuthService) { }
 
   updateTimeStamp() {
     let date = new Date()
@@ -27,4 +30,7 @@ export class PlaylistDetailComponent {
     this.playlistSvc.deletePlaylist(this.playlist.$key)
   }
 
+  ngOnInit() {
+    this.isOwner = this.playlist.creatorId == this.auth.currentUserId
+  }
 }
