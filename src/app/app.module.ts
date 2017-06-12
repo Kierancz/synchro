@@ -85,8 +85,8 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AppRoutingModule, // import & install routes
-    YoutubePlayerModule
+    YoutubePlayerModule,
+    AppRoutingModule // import & install routes
   ],
   providers: [
     youTubeSearchInjectables,
