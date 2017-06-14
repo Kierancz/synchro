@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'playlists', component: PlaylistListComponent, canActivate: [AuthGuard] },
+  { path: 'playlist/:id', component: PlaylistContentComponent },
   /*
     { path: 'playlists', 
     component: PlaylistListComponent,

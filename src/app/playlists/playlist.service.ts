@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
-import { FirebaseListObservable, FirebaseObjectObservable, AngularFireDatabase } from "angularfire2/database";
+import { 
+  FirebaseListObservable, 
+  FirebaseObjectObservable, 
+  AngularFireDatabase } from "angularfire2/database";
 import { Playlist } from './playlist.model';
+import { Headers, Http } from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class PlaylistService {
 
   private basePath: string = '/playlists';
+  private playlistPath: string = '/playlist';
 
   playlists: FirebaseListObservable<any> = null;
   playlist: FirebaseObjectObservable<any> = null;
 
-  constructor(private db: AngularFireDatabase) {
+
+  constructor(
+    private db: AngularFireDatabase, 
+    private http: Http) {
   }
 
   getPlaylists(query={}): FirebaseListObservable<any> {
@@ -24,6 +34,14 @@ export class PlaylistService {
     const playlistPath = `${this.basePath}/${key}`;
     this.playlist = this.db.object(playlistPath)
     return this.playlist
+  }
+  //TODO find playlist by ID property from Firebase or change to keys
+  getPlaylistByID(id: number): Promise<Playlist> {
+    const url = `${this.playlistPath}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Playlist)
+      .catch(this.handleError);
   }
 
   /*getPlaylistRoute(id: number): Promise<Playlist> {
