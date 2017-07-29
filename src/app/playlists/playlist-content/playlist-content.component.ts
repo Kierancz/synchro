@@ -1,5 +1,8 @@
 import { Component, OnInit }        from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
+import { 
+  ActivatedRoute, 
+  Params, 
+  ParamMap }                        from '@angular/router';
 import { Location }                 from '@angular/common';
 import { PlaylistService }          from '../playlist.service';
 import { Playlist }                 from '../playlist.model';
@@ -21,7 +24,10 @@ export class PlaylistContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   
+    this.route.paramMap
+      .switchMap((params: ParamMap) =>
+        this.playlistSvc.getPlaylist(params.get('id')))
+      .subscribe((playlist: Playlist) => this.playlist = playlist);
   }
 
 }

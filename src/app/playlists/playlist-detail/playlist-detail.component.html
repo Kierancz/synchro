@@ -1,6 +1,14 @@
 <md-list-item>
-  <h2 md-line (click)="onSelect(playlist)"><b>{{ playlist.name || 'missing name' }}</b></h2>
+  <h2 md-line (click)="onSelect(playlist)">
+    <b>{{ playlist.name || 'missing name' }}</b>
+  </h2>
+
   <p md-line>{{ playlist.description || 'missing description' }}</p>
+
   <p md-line>{{ playlist.timeStamp | timeAgo }}</p>
-  <button md-button *ngIf="isOwner" (click)='deleteplaylist()'><md-icon>delete_forever</md-icon>Delete</button>
+
+  <button md-button *ngIf="isOwner" (click)='deletePlaylist()'>
+    <md-icon>delete_forever</md-icon>
+    Delete
+  </button>
 </md-list-item>

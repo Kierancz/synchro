@@ -33,7 +33,7 @@ export class PlaylistDetailComponent implements OnInit {
     this.playlistSvc.updatePlaylist(this.playlist.$key, { active: value })
   }
 
-  deleteplaylist() {
+  deletePlaylist() {
     this.playlistSvc.deletePlaylist(this.playlist.$key)
   }
 
@@ -43,9 +43,5 @@ export class PlaylistDetailComponent implements OnInit {
 
   ngOnInit() {
     this.isOwner = this.playlist.creatorId == this.auth.currentUserId
-
-    this.route.params
-    .switchMap((params: Params) => this.playlistSvc.getPlaylistByID(+params['id']))
-    .subscribe((playlist: Playlist) => this.playlist = playlist);
   }
 }
